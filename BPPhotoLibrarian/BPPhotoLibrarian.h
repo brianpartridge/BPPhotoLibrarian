@@ -5,7 +5,7 @@
 //  Copyright (c) 2012 Brian Partridge. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class BPPhotoLibrarian;
 

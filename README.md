@@ -11,13 +11,15 @@ Simple helpers for accessing the iOS photo library.
 
 ## Usage
 
+Add the MobileCoreServices and AssetLibrary frameworks to your "Link Binary With Libraries" build phase.
+
 Add the BPPhotoLibrarian directory to your project and import the header.
 
     #import "BPPhotoLibrarian.h"
 
-    ...
+Check for available functionality and access photos.
 
-    if ([BPPhotoLibrarian canRetrieveLastPhoto]) {}
+    if ([BPPhotoLibrarian canRetrieveLastPhoto]) {
       [BPPhotoLibrarian retrieveLastPhoto:^(UIImage *lastPhoto, NSError *error) {
           if (lastPhoto == nil) {
               NSLog(@"error = %@", error);

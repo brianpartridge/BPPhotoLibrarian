@@ -20,6 +20,7 @@
 		D32820EE1645B00D00E8C4D1 /* BPRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D32820EC1645B00D00E8C4D1 /* BPRootViewController.xib */; };
 		D32820F01645B6CD00E8C4D1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32820EF1645B6CD00E8C4D1 /* MobileCoreServices.framework */; };
 		D32820F21645BBD400E8C4D1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32820F11645BBD400E8C4D1 /* AssetsLibrary.framework */; };
+		D3D065A616477A74004F8703 /* BPPhotoLibrarian.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D065A516477A74004F8703 /* BPPhotoLibrarian.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		D32820EC1645B00D00E8C4D1 /* BPRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPRootViewController.xib; sourceTree = "<group>"; };
 		D32820EF1645B6CD00E8C4D1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D32820F11645BBD400E8C4D1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D3D065A416477A74004F8703 /* BPPhotoLibrarian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPhotoLibrarian.h; sourceTree = "<group>"; };
+		D3D065A516477A74004F8703 /* BPPhotoLibrarian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPhotoLibrarian.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,7 @@
 		D32820BE1645AFEA00E8C4D1 = {
 			isa = PBXGroup;
 			children = (
+				D3D065A316477A74004F8703 /* BPPhotoLibrarian */,
 				D32820D31645AFEB00E8C4D1 /* CameraRoller */,
 				D32820CC1645AFEB00E8C4D1 /* Frameworks */,
 				D32820CA1645AFEB00E8C4D1 /* Products */,
@@ -113,6 +117,15 @@
 				D32820E31645AFEB00E8C4D1 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3D065A316477A74004F8703 /* BPPhotoLibrarian */ = {
+			isa = PBXGroup;
+			children = (
+				D3D065A416477A74004F8703 /* BPPhotoLibrarian.h */,
+				D3D065A516477A74004F8703 /* BPPhotoLibrarian.m */,
+			);
+			path = BPPhotoLibrarian;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +198,7 @@
 				D32820DA1645AFEB00E8C4D1 /* main.m in Sources */,
 				D32820DE1645AFEB00E8C4D1 /* BPAppDelegate.m in Sources */,
 				D32820ED1645B00D00E8C4D1 /* BPRootViewController.m in Sources */,
+				D3D065A616477A74004F8703 /* BPPhotoLibrarian.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
