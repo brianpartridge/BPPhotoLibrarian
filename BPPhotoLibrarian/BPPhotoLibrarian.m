@@ -28,10 +28,11 @@
     return NO;
 }
 
-+ (UIImagePickerController *)savedPhotoPicker {
++ (UIImagePickerController *)savedPhotoPickerWithDelegate:(id<BPPLPickerDelegate>)delegate; {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = SOURCE_TYPE;
     picker.mediaTypes = MEDIA_TYPES;
+    picker.delegate = delegate;
 
     return picker;
 }
@@ -44,7 +45,7 @@
             authStatus == ALAuthorizationStatusAuthorized);
 }
 
-+ (void)retrieveLastPhoto:(BPILCompletionBlock)completionBlock {
++ (void)retrieveLastPhoto:(BPPLImageBlock)completionBlock error:(BPPLErrorBlock)errorBlock {
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library enumerateGroupsWithTypes:ASSET_GROUP
                            usingBlock:^(ALAssetsGroup *group, BOOL *groupEnumerationShouldStop) {
@@ -62,7 +63,7 @@
 
                                                           dispatch_async(dispatch_get_main_queue(), ^{
                                                               if (completionBlock != nil) {
-                                                                  completionBlock(assetImage, nil);
+                                                                  completionBlock(assetImage);
                                                               }
                                                           });
 
@@ -71,8 +72,8 @@
                                                       }];
                            } failureBlock:^(NSError *error) {
                                dispatch_async(dispatch_get_main_queue(), ^{
-                                   if (completionBlock != nil) {
-                                       completionBlock(nil, error);
+                                   if (errorBlock != nil) {
+                                       errorBlock(error);
                                    }
                                });
                            }];

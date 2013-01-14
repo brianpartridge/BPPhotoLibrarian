@@ -20,13 +20,11 @@ Add the BPPhotoLibrarian directory to your project and import the header.
 Check for available functionality and access photos.
 
     if ([BPPhotoLibrarian canRetrieveLastPhoto]) {
-      [BPPhotoLibrarian retrieveLastPhoto:^(UIImage *lastPhoto, NSError *error) {
-          if (lastPhoto == nil) {
-              NSLog(@"error = %@", error);
-          } else {
-              // Show the photo.
-          }
-      }];
+        [BPPhotoLibrarian retrieveLastPhoto:^(UIImage *image) {
+            // Show the photo.
+        } error:^(NSError *error) {
+            // Handle the error.
+        }];
     }
 
 For more, see the CameraRoller demo project.

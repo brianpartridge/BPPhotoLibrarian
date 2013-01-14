@@ -9,14 +9,18 @@
 
 @class BPPhotoLibrarian;
 
-typedef void(^BPILCompletionBlock)(UIImage *lastPhoto, NSError *error);
+@protocol BPPLPickerDelegate <NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@end
+
+typedef void(^BPPLImageBlock)(UIImage *image);
+typedef void(^BPPLErrorBlock)(NSError *error);
 
 @interface BPPhotoLibrarian : NSObject
 
 + (BOOL)canShowSavedPhotoPicker;
-+ (UIImagePickerController *)savedPhotoPicker;
++ (UIImagePickerController *)savedPhotoPickerWithDelegate:(id<BPPLPickerDelegate>)delegate;
 
 + (BOOL)canRetrieveLastPhoto;
-+ (void)retrieveLastPhoto:(BPILCompletionBlock)completionBlock;
++ (void)retrieveLastPhoto:(BPPLImageBlock)completionBlock error:(BPPLErrorBlock)errorBlock;
 
 @end

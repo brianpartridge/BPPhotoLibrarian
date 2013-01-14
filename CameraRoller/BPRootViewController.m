@@ -9,7 +9,7 @@
 #import "BPRootViewController.h"
 #import "BPPhotoLibrarian.h"
 
-@interface BPRootViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface BPRootViewController () <BPPLPickerDelegate>
 
 @end
 
@@ -52,18 +52,16 @@
 }
 
 - (IBAction)cameraRollTapped:(id)sender {
-    UIImagePickerController *picker = [BPPhotoLibrarian savedPhotoPicker];
-    picker.delegate = self;
+    UIImagePickerController *picker = [BPPhotoLibrarian savedPhotoPickerWithDelegate:self];
     [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (IBAction)lastPhotoTapped:(id)sender {
-    [BPPhotoLibrarian retrieveLastPhoto:^(UIImage *lastPhoto, NSError *error) {
-        if (lastPhoto == nil) {
-            NSLog(@"error = %@", error);
-        } else {
-            self.displayedImageView.image = lastPhoto;
-        }
+    [BPPhotoLibrarian retrieveLastPhoto:^(UIImage *image) {
+        self.displayedImageView.image = image;
+        [self updateUI];
+    } error:^(NSError *error) {
+        NSLog(@"error = %@", error);
         [self updateUI];
     }];
 }
